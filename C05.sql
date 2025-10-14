@@ -1,0 +1,11 @@
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+SET TRANSACTION READ WRITE;
+
+-- Bloqueia o registro do aluno para evitar alteração concorrente
+SELECT * FROM ALUNO WHERE MATRICULA_ALUNO = 'A002' FOR UPDATE;
+
+-- Deleta o aluno
+DELETE FROM ALUNO WHERE MATRICULA_ALUNO = 'A002';
+
+-- Atualiza capacidade atual da sala (hipotético)
+-- UPDATE SALA SET QUANTIDADE_ATUAL = QUANTIDADE_ATUAL - 1 WHERE NUMERO_SALA = 101;
